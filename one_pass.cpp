@@ -1,9 +1,10 @@
 #include "one_pass.hpp"
 using namespace std;
 
-const vector<point> get_neighbours(unsigned int x, unsigned int y, unsigned int xsize, unsigned int ysize)
+inline static const vector<point> get_neighbours(unsigned int x, unsigned int y, unsigned int xsize, unsigned int ysize)
 {
     vector<point> result;
+    result.reserve(4);
     if (x > 0)
         result.push_back(point(x - 1, y));
     if (y > 0)

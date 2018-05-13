@@ -2,6 +2,7 @@
 #include <chrono>
 #include "data_handling.hpp"
 #include "one_pass.hpp"
+#include "two_pass.hpp"
 using namespace std;
 using namespace chrono;
 
@@ -11,7 +12,7 @@ int main()
     cout << "done loading file" << endl;
     high_resolution_clock::time_point t1 = high_resolution_clock::now();
 
-    one_pass(array);
+    two_pass(array);
 
     high_resolution_clock::time_point t2 = high_resolution_clock::now();
 
