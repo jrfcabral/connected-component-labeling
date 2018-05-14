@@ -1,8 +1,9 @@
 #pragma once
-#include <vector>
-#include <stdint.h>
 #include <stack>
+#include <stdint.h>
+#include <vector>
 
 #include "common.h"
 
-std::vector<std::vector<point>> one_pass(std::vector<std::vector<uint8_t>> data);
+std::vector<std::vector<point>>
+one_pass(std::vector<std::vector<uint8_t>> data);

@@ -9,9 +9,9 @@ find_package(Boost 1.40 COMPONENTS program_options REQUIRED)
 
 include_directories(include)
 
-add_executable(adjacent_cells_cpp
+add_executable(adjacent_cells_challenge
         data_handling.cpp
         one_pass.cpp
         two_pass.cpp
         main.cpp)
-target_link_libraries(adjacent_cells_cpp Boost::program_options)
+target_link_libraries(adjacent_cells_challenge Boost::program_options)
