@@ -3,15 +3,12 @@ project(adjacent_cells_cpp)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_BUILD_TYPE Release)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -pedantic -flto")
 
-find_package(Boost 1.40 COMPONENTS program_options REQUIRED)
+enable_testing()
+
+find_package(Boost 1.60 COMPONENTS program_options REQUIRED)
 
 include_directories(include)
 
-add_executable(adjacent_cells_challenge
-        data_handling.cpp
-        one_pass.cpp
-        two_pass.cpp
-        main.cpp)
-target_link_libraries(adjacent_cells_challenge Boost::program_options)
+add_subdirectory(src)
+add_subdirectory(test)

@@ -11,7 +11,9 @@ const vector<vector<uint8_t>> load_file(std::string filename) {
 
 void format_result(vector<vector<point>> result, ostream &os) {
   for (auto line : result) {
-    nlohmann::json value(line);
-    os << value << endl;
+    if (line.size() > 1){
+      nlohmann::json value(line);
+      os << value << endl;
+    }
   }
 }

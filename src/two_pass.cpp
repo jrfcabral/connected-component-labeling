@@ -49,8 +49,10 @@ two_pass(std::vector<std::vector<uint8_t>> data) {
   }
   for (unsigned int i = 0; i < labels.size(); i++) {
     for (unsigned int j = 0; j < labels[i].size(); j++) {
-      labels[i][j] = ds.find_set(labels[i][j]);
-      groups[labels[i][j]].push_back({i, j});
+      if (data[i][j] != 0) {
+        labels[i][j] = ds.find_set(labels[i][j]);
+        groups[labels[i][j]].push_back({i, j});
+      }
     }
   }
 
