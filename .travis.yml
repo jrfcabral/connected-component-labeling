@@ -1,0 +1,23 @@
+sudo: required
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - docker build -t adjacent_cells_challenge .
+
+script:
+  - docker run adjacent_cells_challenge make test
+
+before_deploy:
+  - docker run adjacent_cells_challenge cat src/adjacent_cells_challenge > adjacent_cells_challenge
+
+deploy:
+  provider: releases
+  api_key: 
+    secure: "htEBtecth7p3TmEtdw1IC7f98CnSKLCvLIuR6+oNyMPPd6+tUe105tdc+2G7haN///XUbojf9OQsDaPhLJyTa+MGeCIEVZBEmiYpzzWD1o+8CX5co8IVEMnWlWbq54h5/R+YqQEYr1bu2KCxYM/YY165IZFD7v49zA4nlFvEzVKxziyfiM3WlUs7ex/cFyf2ASHelUSEzyvNINEPULyqmemQ+aRSQhIR+Lvl8skKUqlMJxFo9xh/LikCeLlzjlg4wiWYdVWn4YjAQOFEMxwUNRPvcan12gsVGcaYsxBpPHtTxwlnlazZi8awnd9Cnmwrt83/ufDC1wwlSDzbaJSa4LhptAZBs7j3X+bp7WzExaJ/PuPsJ60hCxCS6vCI6tGdO6R9pn+sLcEqmm37W9hkdsswrZn4NvAUpPlN4nDPCkBchDjYpUOpo4sVFSrSd8eyRtt45z962coc8oT57M2H3uoWPgW/WM1lm1R0BXXO+D0j3WYfkAwhMhWxzW/Mp2JSR1p77c2cHw1M52U8zsIaNbuYsibUNqev/roH466sZ5jyPJwxltdhmznUyieb/rFHZNJFbeA65kTykj7pa65jqGdotBuGvaiUYv4PHz4UW8wFSPFGvnbCeHo2MaK3WSq8STKwAOH4ViRO7sl2YMlPdDEbfiL5T//ILE4DkQxKyfs="
+  file: "adjacent_cells_challenge"
+  skip_cleanup: true
+  on:
+    branch: master
