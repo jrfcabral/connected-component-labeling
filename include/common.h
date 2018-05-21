@@ -7,12 +7,3 @@ struct pair_hash {
     return v.first * 31 + v.second;
   }
 };
-
-template <template <typename, typename, typename...> class M, typename K,
-          typename V, typename... Args>
-inline V find_or_default(M<K, V, Args...> map, K key, V def) {
-  auto it = map.find(key);
-  if (it == map.end())
-    return def;
-  return it->second;
-}
