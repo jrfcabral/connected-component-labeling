@@ -51,12 +51,13 @@ two_pass(std::vector<std::vector<uint8_t>> data) {
     for (unsigned int j = 0; j < labels[i].size(); j++) {
       if (data[i][j] != 0) {
         labels[i][j] = ds.find_set(labels[i][j]);
-        groups[labels[i][j]].push_back({i, j});
+        groups[labels[i][j] - 1].push_back({i, j});
       }
     }
   }
 
   delete rank;
   delete parent;
+  groups.resize(currentLabel-1);
   return groups;
 }
